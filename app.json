@@ -11,7 +11,9 @@
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
-    "assetBundlePatterns": ["**/*"],
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "ios": {
       "supportsTablet": true
     },
@@ -21,11 +23,19 @@
         "backgroundColor": "#ffffff"
       },
       "config": {
-        "googleMaps": { "apiKey": "AIzaSyCeoez2xilRhZ-xzpFFt2gWUDYeBZwAZQs" }
-      }
+        "googleMaps": {
+          "apiKey": "AIzaSyCeoez2xilRhZ-xzpFFt2gWUDYeBZwAZQs"
+        }
+      },
+      "package": "com.yunjisang.Bookstage"
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "0af79d1c-abe9-4bab-ac2f-5d0653cae481"
+      }
     }
   }
 }
