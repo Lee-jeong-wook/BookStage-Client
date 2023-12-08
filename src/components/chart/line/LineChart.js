@@ -18,7 +18,7 @@ export const BreakChart = () => {
         labels: [`1월`, `2월`, `3월`, `4월`, `5월`, `6월`, `7월`, `8월`, `9월`, `10월`, `11월`, `12월`],
         datasets: [
           {
-            data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            data: !serverData ? [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] : serverData,
             color: (opacity = 1) => `rgba(30, 30, 30, ${opacity})`, // optional
             strokeWidth: 2 // optional
           }
