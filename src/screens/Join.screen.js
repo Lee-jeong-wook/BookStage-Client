@@ -3,7 +3,7 @@ import { JoinStyle } from "../styles/Join/Join.style";
 import { useState } from "react";
 import postJoinHandler from "../apis/users/postJoin";
 
-const JoinScreen = () => {
+const JoinScreen = ({ navigation }) => {
     const [email, setEmail] = useState();
     const [name, setName] = useState();
     const [password, setPassword] = useState();
@@ -14,7 +14,13 @@ const JoinScreen = () => {
             return;
         }
 
-        const data = await postJoinHandler(email, password);
+        try {
+            const data = await postJoinHandler(email, password);
+        } catch (err) {
+            console.log(err);
+        } finally {
+            navigation.navigate("Login");
+        }
     }
 
     return (
