@@ -25,7 +25,6 @@ export default function App() {
       }
     }
     checkLogin();
-    clearAll();
   }, [])
 
   return (<SafeAreaView style={AppStyle.container}>
