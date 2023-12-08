@@ -39,7 +39,7 @@ const Timer = () => {
         <Text style={TimerStyle.title}>나의 독서 시간이 궁금하다면?</Text>
         <Text style={TimerStyle.time}>{`${time.hour}:${time.min}:${time.sec}`}</Text>
         <View style={TimerStyle.buttonWrap}>
-            <TouchableOpacity onPress={() => setIsRunning(!isRunning)} style={TimerStyle.button}><Text style={TimerStyle.buttonTitle}>{isRunning ? "STOP" : "START"}</Text></TouchableOpacity>
+            <TouchableOpacity onPress={() => setIsRunning(!isRunning)} style={[TimerStyle.button, isRunning ? {backgroundColor:"red"} : {backgroundColor: "#EC9C1D"}]}><Text style={TimerStyle.buttonTitle}>{isRunning ? "STOP" : "START"}</Text></TouchableOpacity>
             <TouchableOpacity onPress={() => setCount(0)} style={TimerStyle.button}><Text style={TimerStyle.buttonTitle}>Reset</Text></TouchableOpacity>
         </View>
     </View >

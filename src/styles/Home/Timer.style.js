@@ -14,7 +14,7 @@ const TimerStyle = StyleSheet.create({
     },
 
     title: {
-        fontSize: 16
+        fontSize: 20
     },
 
     time: {

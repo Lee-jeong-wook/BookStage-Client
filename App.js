@@ -5,7 +5,7 @@ import { SafeAreaView } from 'react-native';
 import { BottomBar } from './src/components/bottom_bar/BottomBar';
 import AppStyle from './src/styles/App.style';
 import { useEffect, useState } from 'react';
-import { getData } from './src/util/AsyncStorage';
+import { clearAll, getData } from './src/util/AsyncStorage';
 
 const NavigatorStack = createStackNavigator();
 
@@ -32,8 +32,7 @@ export default function App() {
       <NavigationContainer>
         <NavigatorStack.Navigator initialRouteName='Home' >
           <NavigatorStack.Screen name="Home" component={HomeScreen} options={{
-            title: "BOOKSTAGE", headerTitleAlign: "center"
-          }} />
+            headerShown:false}} />
           <NavigatorStack.Screen name="Search" component={SearchScreen} />
           <NavigatorStack.Screen name="My" component={MyScreen} />
           <NavigatorStack.Screen name="Chart" component={ChartScreen} options={{ title: "통계" }} />

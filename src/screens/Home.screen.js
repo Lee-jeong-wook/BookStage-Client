@@ -36,30 +36,42 @@ const HomeScreen = ({ navigation }) => {
         <>
             {isLoading && <Text>Loading...</Text>}
             {!isLoading && (
-                <ScrollView style={HomeScreenStyle.container}>
-                    <TextInput
-                        style={HomeScreenStyle.searchInput}
-                        value={searchInput}
-                        onChangeText={setSearchInput}
-                        placeholder="검색할 책을 입력해주세요"
-                        onSubmitEditing={SearchSubmitHandler}
-                    />
-                    <View style={HomeScreenStyle.RecommendSection}>
-                        <Text style={HomeScreenStyle.Title}>요즘 인기 있는 책이에요!</Text>
-                        <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-                            {
-                                recommendBooks && recommendBooks.map((doc, idx) => {
-                                    return <TouchableOpacity key={idx} onPress={() => navigation.navigate("View", { bookName: doc.bookname._cdata })}>
-                                        <View style={HomeScreenStyle.RecommendWrap}>
-                                            <Image source={{ uri: doc.bookImageURL._cdata }} style={HomeScreenStyle.recommendBookImage} />
-                                            <Text numberOfLines={1}>{doc.bookname._cdata}</Text>
-                                        </View>
-                                    </TouchableOpacity>
-                                })
-                            }
-                        </ScrollView>
+                <ScrollView contentContainerStyle={HomeScreenStyle.container}>
+                    <View>
+                        <View style={HomeScreenStyle.TopBar}>
+                            <Image 
+                                source={require("../../assets/Logo2.png")} 
+                                style={HomeScreenStyle.Logo}
+                            />
+                        </View>
+                        <TextInput
+                            style={HomeScreenStyle.searchInput}
+                            value={searchInput}
+                            onChangeText={setSearchInput}
+                            placeholder="검색할 책을 입력해주세요"
+                            onSubmitEditing={SearchSubmitHandler}
+                        />
+                        <View style={HomeScreenStyle.RecommendSection}>
+                            <Text style={HomeScreenStyle.Title}>요즘 인기 있는 책이에요!</Text>
+                            <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+                                {
+                                    recommendBooks && recommendBooks.map((doc, idx) => {
+                                        return <TouchableOpacity key={idx} onPress={() => navigation.navigate("View", { bookName: doc.bookname._cdata })}>
+                                            <View style={HomeScreenStyle.RecommendWrap}>
+                                                <Image source={{ uri: doc.bookImageURL._cdata }} style={HomeScreenStyle.recommendBookImage} />
+                                                <Text numberOfLines={1}>{doc.bookname._cdata}</Text>
+                                            </View>
+                                        </TouchableOpacity>
+                                    })
+                                }
+                            </ScrollView>
+                        </View>
+                        <Timer />
                     </View>
-                    <Timer />
+                    <View style={HomeScreenStyle.DesignBox}>
+                        <View style={HomeScreenStyle.DesignFirstLine}></View>
+                        <View style={HomeScreenStyle.DesignSecondLine}></View>
+                    </View>
                 </ScrollView>
             )}
         </>

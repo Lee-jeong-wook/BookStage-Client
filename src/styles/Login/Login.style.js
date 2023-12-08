@@ -13,8 +13,9 @@ export const LoginStyle = StyleSheet.create({
         marginBottom: 50
     },
     Logo: {
-        width: 200,
-        height: 200
+        width: 250,
+        height: 190,
+        marginBottom: 30
     },
     Form: {
         alignItems: "center",

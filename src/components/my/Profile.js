@@ -18,18 +18,27 @@ import { getData } from "../../util/AsyncStorage";
 
 const styles = StyleSheet.create({
   container : {
-
+    display:"flex",
+    flexDirection:"column",
+    alignItems:"center",
   },
   profile : {
     borderRadius:50,
     width:100,
-    height:100
-  }
+    height:100,
+    },
+    nameContainer : {
+      width:200,
+      display:"flex",
+      flexDirection:"row",
+      justifyContent:"space-around"
+    }
 })
 
 export const Profile = () => {
   const [name, setName] = useState("Guest");
   const [isEdit, setIsEdit] = useState(false);
+  const [email, setEmail] = useState("");
 
   useEffect(() => {
     const getNameFromStorage = async () => {
@@ -49,11 +58,11 @@ export const Profile = () => {
 
       if (!!data) {
         console.log(data.data);
+        setEmail(data.data);
       }
     }
-
+    getEmail()
     getNameFromStorage();
-    getEmail();
   }, []);
 
   const submitHandler = async () => {
@@ -70,7 +79,9 @@ export const Profile = () => {
   };
 
   return (
-    <View>
+    <View
+    style={styles.container}
+    >
       <View
       style={styles.profile}
       >
@@ -80,12 +91,12 @@ export const Profile = () => {
         />
       </View>
       {isEdit ? (
-        <View>
+        <View style={styles.nameContainer}>
           <TextInput value={name} onChangeText={changeHandler} />
           <Button onPress={submitHandler} title="전송" />
         </View>
       ) : (
-        <View>
+        <View style={styles.nameContainer}>
           <Text
           style={{fontSize: 20}}
           >{name}</Text>
@@ -96,6 +107,16 @@ export const Profile = () => {
           </TouchableOpacity>
         </View>
       )}
+      <View>
+        <Text>
+          Email : {email};
+        </Text>
+      </View>
+      <View>
+        <Text>
+          최근 접속 기록
+        </Text>
+      </View>
       <CurrentConnect />
     </View>
   );

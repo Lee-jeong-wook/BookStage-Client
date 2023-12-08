@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
 })
 
 export const TextChart = () => {
-    const [value, setVaue] = useState([1, 0, 0, 0]);
+    const [value, setVaue] = useState([0, 0, 0, 0]);
     return(
         <View style={styles.container}>
             <View style={styles.item}>

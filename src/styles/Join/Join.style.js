@@ -10,8 +10,8 @@ export const JoinStyle = StyleSheet.create({
         alignItems: "center",
     },
     Logo: {
-        width: 400,
-        height: 400
+        width: 280,
+        height: 250,
     },
     JoinBox: {
         width: width - 80,
@@ -19,10 +19,12 @@ export const JoinStyle = StyleSheet.create({
         backgroundColor: "#fff",
         borderRadius: 15,
         alignItems: "center",
-        gap: 30
+        gap: 40,
+        padding: 50
     },
     InputSection: {
-        gap: 10
+        gap: 10,
+        marginBottom: 20
     },
     Input: {
         width: width * 0.7,
@@ -39,7 +41,9 @@ export const JoinStyle = StyleSheet.create({
         height: 55,
         backgroundColor: "#EC9C1D",
         justifyContent: "center",
-        alignItems: "center"
+        alignItems: "center",
+        borderRadius: 50,
+        elevation: 2
     },
     ButtonText: {
         fontSize: 18,

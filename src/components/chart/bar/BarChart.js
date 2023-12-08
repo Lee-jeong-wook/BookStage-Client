@@ -9,36 +9,41 @@ const styles = StyleSheet.create({
         flex:1,
         alignItems:"center",
         overflow:"hidden"
-    },
-    graph : {
-        // backgroundColor:"#ccc"
     }
 })
 
 export const StickChart = () => {
-    const data = {
-        labels: ["1월", "2월", "3월", "4월", "5월", "6월", "7월", "8월", "9월", "10월", "11월", "12월"],
-        datasets: [
-          {
-            data: [5, 7, 2, 10, 3, 3, 2, 5, 1, 3, 8, 2],
-          }
-        ],
-        
-      };
-      const serverData = getStatistic();
-      console.log(serverData)
-    return(
-        <View style={styles.container}>
+  const serverData = getStatistic();
+  console.log(serverData)
+  const data = {
+      labels: ["1월", "2월", "3월", "4월", "5월", "6월", "7월", "8월", "9월", "10월", "11월", "12월"],
+      datasets: [
+        {
+          data: !serverData ? [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] : serverData
+        }
+      ],
+  };
+  console.log(data);
+  return(
+      <View style={styles.container}>
+        {
+          !serverData ? (
             <BarChart
-              style={styles.graph}
-              data={data}
-              width={450}
-              height={200}
-              chartConfig={chartConfig}
-            //   verticalLabelRotation={30}
-              showBarTops
-              fromZero
-            />
-        </View>
-    )
+            data={data}
+            width={450}
+            height={200}
+            chartConfig={chartConfig}
+            showBarTops
+            fromZero
+          />
+          ) : (
+            <View>
+              <Text>
+                아직 데이터가 없습니다
+              </Text>
+            </View>
+          )
+        }
+      </View>
+  )
 }

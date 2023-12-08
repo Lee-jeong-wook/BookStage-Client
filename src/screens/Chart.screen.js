@@ -3,6 +3,7 @@ import { CircleChart } from "../components/chart/circle/CircleChart";
 import { BreakChart } from "../components/chart/line/LineChart";
 import { TextChart } from "../components/chart/text/TextChart";
 import { StickChart } from "../components/chart/bar/BarChart";
+import { getStatistic } from "../apis/statistic/getStatistic";
 
 const styles = StyleSheet.create({
     container:{
@@ -23,11 +24,10 @@ const styles = StyleSheet.create({
 })
 
 const ChartScreen = () => {
-    // 스택헤서 헤더 X
-    // 읽은 권수, 읽은 페이지, 월 평균 (텍스트)
-    // 원 그래프로 장르 그래프 작성 (원)
-    // 월별 평균 독서 시간  (막대)
+    // 읽은 권수, 읽은 페이지, 주, 월 평균 (텍스트)
     // 월마다 읽은 책 그래프 (꺾은선)
+    // const {data} = getStatistic();
+    // console.log(data);
     return(
         <ScrollView>
             <View style={styles.container}>
@@ -37,17 +37,6 @@ const ChartScreen = () => {
                         showHorizontalScrollIndicator={false}
                     >
                         <TextChart />
-                    </ScrollView>
-                </View>
-                <View style={styles.item}>
-                    <CircleChart />
-                </View>
-                <View style={styles.item}>
-                    <ScrollView
-                        horizontal={true}
-                        showHorizontalScrollIndicator={false}
-                    >
-                        <StickChart />
                     </ScrollView>
                 </View>
                 <View style={styles.item}>

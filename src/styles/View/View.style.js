@@ -69,7 +69,7 @@ const ViewScreenStyle = StyleSheet.create({
         justifyContent: "space-around",
         alignItems: "center",
         gap: 10,
-        backgroundColor: "#044E34",
+        backgroundColor: "#DB9834",
         borderTopLeftRadius: 50,
         borderTopRightRadius: 50,
         position: "relative",
