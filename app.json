@@ -11,13 +11,15 @@
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "assetBundlePatterns": ["**/*"],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.yunjisang.Bookstage",
+      "buildNumber": "1.0.0"
     },
     "android": {
+      "package": "com.yunjisang.Bookstage",
+      "versioCode": 1,
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
@@ -26,8 +28,7 @@
         "googleMaps": {
           "apiKey": "AIzaSyCeoez2xilRhZ-xzpFFt2gWUDYeBZwAZQs"
         }
-      },
-      "package": "com.yunjisang.Bookstage"
+      }
     },
     "web": {
       "favicon": "./assets/favicon.png"
